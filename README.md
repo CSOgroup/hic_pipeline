@@ -1,1 +1,1 @@
-# hic_pipeline
+# Hi-C processing pipeline
