@@ -1,0 +1,4 @@
+sample_path,raw_path,restriction_enzyme,genome_assembly,genome_sequence,chromsizes
+data/processed/RPE_WT_rep1,/home/luca/Utilities/hic_pipeline/data/raw/RPE_WT_rep1,MboI,hg19,/cso/gred/Yuanlong/3.Software_packages/juicer/references/hg19/hg19_chr1_22XYM.fa,/cso/gred/Yuanlong/3.Software_packages/juicer/references/hg19/hg19.chrom.sizes
+data/processed/RPE_WT_rep2,/home/luca/Utilities/hic_pipeline/data/raw/RPE_WT_rep2,MboI,hg19,/cso/gred/Yuanlong/3.Software_packages/juicer/references/hg19/hg19_chr1_22XYM.fa,/cso/gred/Yuanlong/3.Software_packages/juicer/references/hg19/hg19.chrom.sizes
+data/processed/GM12878_HIC003,/home/luca/Utilities/hic_pipeline/data/raw/GM12878_HIC003,MboI,hg19,/cso/gred/Yuanlong/3.Software_packages/juicer/references/hg19/hg19_chr1_22XYM.fa,/cso/gred/Yuanlong/3.Software_packages/juicer/references/hg19/hg19.chrom.sizes
