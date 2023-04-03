@@ -1,0 +1,2 @@
+sample_path,restriction_enzyme,genome_assembly,chromsizes,replicate_paths
+data/processed/RPE_WT_mega,MboI,hg19,/cso/gred/Yuanlong/3.Software_packages/juicer/references/hg19/hg19.chrom.sizes,data/processed/RPE_WT_rep1:data/processed/RPE_WT_rep2
