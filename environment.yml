@@ -1,0 +1,7 @@
+name: hic_pipeline
+channels:
+  - bioconda
+dependencies:
+  - bwa
+  - hic2cool
+  - fastqc
