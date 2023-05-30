@@ -43,6 +43,10 @@ genomeID="hg19"
 # can also be set in options via -D 
 juiceDir="/cso/gred/Yuanlong/3.Software_packages/juicer"
 
+if [[ ! -z ${JUICER_PATH} ]]; then
+	juiceDir="${JUICER_PATH}"
+fi
+
 resolutions="10000,20000,25000,50000,100000,250000,500000,1000000,10000000"
 
 usageHelp="Usage: ${0##*/} -g genomeID [-d topDir] [-s site] [-S stage] [-b ligation] [-D Juicer scripts directory] [-f] [-h]"

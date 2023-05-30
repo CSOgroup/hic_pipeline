@@ -75,6 +75,12 @@ read2str="_R2_"
 # Juicer directory, contains scripts/, references/, and restriction_sites/
 # can also be set in options via -D
 juiceDir="/cso/gred/Yuanlong/3.Software_packages/juicer"
+
+if [[ ! -z ${JUICER_PATH} ]]; then
+        juiceDir="${JUICER_PATH}"
+fi
+
+
 # top level directory, can also be set in options
 topDir=$(pwd)
 # restriction enzyme, can also be set in options
