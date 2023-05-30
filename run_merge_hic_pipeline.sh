@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ENVIRONMENT_NAME="hic_pipeline"
 CONFIG_FILE=$1
 SCRIPT_DIR="$(dirname $0)/src"
 MEGA_SCRIPT="${SCRIPT_DIR}/mega.sh"
@@ -74,6 +75,8 @@ if [[ -z ${CONFIG_FILE} ]]; then
 	exit -1
 fi
 
+eval "$(conda shell.bash hook)"
+conda activate ${ENVIRONMENT_NAME}
 
 line_count=0
 while read line

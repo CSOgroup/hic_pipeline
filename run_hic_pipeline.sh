@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ENVIRONMENT_NAME="hic_pipeline"
 SCRIPT_DIR="$(dirname $0)/src"
 JUICER_SCRIPT="${SCRIPT_DIR}/juicer.sh"
 CLEANUP_SCRIPT="${SCRIPT_DIR}/cleanup.sh"
@@ -134,6 +135,8 @@ if [[ -z ${CONFIG_FILE} ]]; then
 	exit -1
 fi
 
+eval "$(conda shell.bash hook)"
+conda activate ${ENVIRONMENT_NAME}
 
 line_count=0
 while read line
@@ -149,5 +152,5 @@ do
 	clean | tee -a ${log_file}
 done < ${CONFIG_FILE}
 
-
+conda deactivate
 
