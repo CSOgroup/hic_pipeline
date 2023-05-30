@@ -1,33 +1,28 @@
 # Hi-C processing pipeline
 
-> :warning: **For the time being, this pipeline can be run only on the <u>graviton</u> server**: In-progress work to make the pipeline working on other machines!
-
 ## About the pipeline
 This pipeline is heavily inspired by the [juicer pipeline](https://github.com/aidenlab/juicer). For any information about the internal workings of the pipeline, please check their repository. You can see this pipeline as a wrapper around that one.
 
 The main usage of this pipeline is to run the analysis of multiple Hi-C samples and organize their results in a coherent way.
 
-## Installing the pipeline
-Clone the repository and enter in the folder:
+## Using a pre-made setup
+If the pipeline was already installed in your system, simply run the following:
+```
+install_hic_pipeline.sh
+```
+If requested, logout from the system, login again, and run again `install_hic_pipeline.sh` to complete the setup. If not, move to the next step.
 
-```
-git clone https://github.com/CSOgroup/hic_pipeline.git
-cd hic_pipeline
-```
-
-Install the dependencies using conda/mamba, creating a new environment (`hic_pipeline`):
-```
-conda env create -f environment.yml
-```
-
+## Testing the pipeline
 Test that the pipeline works by running:
 ```
-./run_hic_pipeline.sh test_input.csv
+run_hic_pipeline.sh test_input.csv
 ```
 and 
 ```
-./run_merge_hic_pipeline.sh test_mega.csv
+run_merge_hic_pipeline.sh test_mega.csv
 ```
+
+where `test_input.csv` and `test_mega.csv` are sample files which can be downloaded from this Github repository. Remember to modify accordingly the `genome_sequence` and `chromsizes` fields to point to your juicer installation.
 
 ## 1) Processing single Hi-C samples
 This is the main step of the pipeline.
@@ -70,3 +65,16 @@ You can check the [test_mega.csv](./test_mega.csv) file for reference.
 
 
 
+## Installing the pipeline from scratch
+Clone the repository and enter in the folder:
+
+```
+git clone https://github.com/CSOgroup/hic_pipeline.git
+cd hic_pipeline
+```
+
+Install the dependencies using conda/mamba, creating a new environment (`hic_pipeline`):
+```
+./install_hic_pipeline.sh
+```
+If requested, logout from the system, login again, and run again `install_hic_pipeline.sh` to complete the setup. If not, move to the next step.
