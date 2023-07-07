@@ -19,8 +19,22 @@ parse_line(){
 	restriction_enzyme=$(echo $line | cut -d',' -f 3)
 	genome_assembly=$(echo $line | cut -d',' -f 4)
 	genome_sequence=$(echo $line | cut -d',' -f 5)
+	if [[ -z ${genome_sequence} ]]; then
+		if [[ -z ${REFERENCES_PATH} ]]; then 
+			echo "Environment variable REFERENCES_PATH must be set"
+			exit -1
+		fi
+		genome_sequence="${REFERENCES_PATH}/${genome_assembly}/${genome_assembly}.fa"
+	fi
 	genome_sequence=$(realpath ${genome_sequence})
 	chromsizes=$(echo $line | cut -d',' -f 6)
+	if [[ -z ${chromsizes} ]]; then
+		if [[ -z ${REFERENCES_PATH} ]]; then 
+			echo "Environment variable REFERENCES_PATH must be set"
+			exit -1
+		fi
+		chromsizes="${REFERENCES_PATH}/${genome_assembly}/${genome_assembly}.chrom.sizes"
+	fi
 	chromsizes=$(realpath ${chromsizes})
 }
 

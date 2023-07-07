@@ -11,9 +11,16 @@ parse_line(){
 	sample_path=$(echo $line | cut -d',' -f 1)
 	restriction_enzyme=$(echo $line | cut -d',' -f 2)
 	genome_assembly=$(echo $line | cut -d',' -f 3)
-	chromsizes=$(echo $line | cut -d',' -f 4)
+	replicate_paths=$(echo $line | cut -d',' -f 4)
+	chromsizes=$(echo $line | cut -d',' -f 5)
+	if [[ -z ${chromsizes} ]]; then
+		if [[ -z ${REFERENCES_PATH} ]]; then 
+			echo "Environment variable REFERENCES_PATH must be set"
+			exit -1
+		fi
+		chromsizes="${REFERENCES_PATH}/${genome_assembly}/${genome_assembly}.chrom.sizes"
+	fi
 	chromsizes=$(realpath ${chromsizes})
-	replicate_paths=$(echo $line | cut -d',' -f 5)
 }
 
 create_merge_path(){
@@ -85,11 +92,11 @@ do
 	line_count=$((line_count+1))
 	if [[ ${line_count} -eq 1 ]]; then continue; fi
 	parse_line ${line}
-	create_merge_path
-	if [[ ! -e ${sample_path}/aligned/inter_30.hic ]]; then 
-		prepare_merge_path | tee -a ${log_file}
-		run_mega | tee -a ${log_file}
-	fi
-	mcool | tee -a ${log_file}
-	clean | tee -a ${log_file}
+	# create_merge_path
+	# if [[ ! -e ${sample_path}/aligned/inter_30.hic ]]; then 
+	# 	prepare_merge_path | tee -a ${log_file}
+	# 	run_mega | tee -a ${log_file}
+	# fi
+	# mcool | tee -a ${log_file}
+	# clean | tee -a ${log_file}
 done < ${CONFIG_FILE}
