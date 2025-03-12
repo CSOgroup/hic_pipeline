@@ -95,6 +95,7 @@ if [ -z "$ligation" ]; then
 	DpnII) ligation="GATCGATC";;
 	MboI) ligation="GATCGATC";;
 	none) ligation="XXXX";;
+ 	Arima) ligation="'(GAATAATC|GAATACTC|GAATAGTC|GAATATTC|GAATGATC|GACTAATC|GACTACTC|GACTAGTC|GACTATTC|GACTGATC|GAGTAATC|GAGTACTC|GAGTAGTC|GAGTATTC|GAGTGATC|GATCAATC|GATCACTC|GATCAGTC|GATCATTC|GATCGATC|GATTAATC|GATTACTC|GATTAGTC|GATTATTC|GATTGATC)'" ;;
 	*)  ligation="XXXX"
 	    site_file=$site
 	    echo "$site not listed as recognized enzyme, so trying it as site file."
